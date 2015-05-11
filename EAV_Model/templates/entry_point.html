@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+
+<div id="main">
+<div class="content">
+   <div class="container">
+	<img src="/crades/img/logoCRADES.png" alt="Logo">
+			<h3 class="title">Etapas del Estudio - Studio: {{Study}}</h3>
+			<p>Por favor seleccione la etapa del estudio en la cual quiere incluir información del paciente</p>
+   			<table width="100%">
+				<tr>
+					<td width="40%">
+					<table width="100%">
+							{%for element in Stages%}
+								<tr>
+								<td width="100%">
+								<form class="reply" METHOD="LINK" ACTION=../{{element}}/>
+								<fieldset>
+								<button class="btn-small btn-color submit" type="submit" value="Registro_Paciente">{{element}}</button>
+								</fieldset>
+								</form>
+								</td>
+								</tr>
+								<tr height="10px">
+								</tr>
+							{% endfor %}
+							<tr>
+							<td width="100%">
+							<form METHOD="LINK" ACTION=/eav/patient/>
+							<fieldset>
+							<button class="btn-small btn-color submit" type="submit" value="Registro_Paciente">Registro de Pacientes</button>
+							</fieldset>
+							</form>
+							</td>
+							</tr>
+					</table>
+					</td>
+				<td td width="5%" >
+				</td>
+				<td width="55%" >
+					<iframe name="iframe_a" width="100%" height="100%" frameBorder="0"></iframe>
+				</td>
+				</tr>
+			</table>
+	</div>
+	</div>
+	<br>
+	<br>
+</div>
+
+{% endblock %}

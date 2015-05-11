@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="main">
+            <div class="content">
+               <div class="container">
+               			<img src="/crades/img/logoCRADES.png" alt="Logo">
+                        <h3 class="title">Autenticación de Usuario</h3>
+                        <p>Please ingrese su usuario y contraseña</p>
+                        <div class="divider"></div>
+						<form class="reply" id="form" method="post">{% csrf_token %}
+						<fieldset>
+                              <div class="row">
+                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label>Usuario: <span></span></label>
+                                    <input class="form-control" type="text" name="username" value="{{ username }}" />
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label>Contraseña:<span></span></label>
+                                    <input class="form-control" type="password" name="password" value="" /><br/>
+                                 </div>
+                              </div>
+                      	</fieldset>
+                        <button class="btn-normal btn-color submit  bottom-pad" type="submit" value="Log In">Ingrese</button>
+                        {% if errors %}
+                        <div class="alert-danger alert">
+                           {{errors}}
+                        </div>
+                        {% endif %}
+						</form>	
+			</div>
+		</div>
+</div>
+{% endblock %}
